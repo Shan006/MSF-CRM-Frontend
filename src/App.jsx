@@ -76,6 +76,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import RedirectRoute from "./RedirectRoute";
 import AddCustomers from "./pages/ecommerce/AddCustomers";
 import UpdateCustomer from "./pages/ecommerce/UpdateCustomer";
+<<<<<<< HEAD
 import BorrowerForm from "./pages/MailForms/BorrowerForm";
 import AddressInfo from "./pages/MailForms/AddressInfo";
 import CoBorrower from "./pages/MailForms/CoBorrower";
@@ -85,6 +86,10 @@ import PropertyInfo from "./pages/MailForms/PropertyInfo";
 import HousingExpenses from "./pages/MailForms/HousingExpenses";
 import CreditVerification from "./pages/MailForms/CreditVerification";
 
+=======
+import Portal from "./pages/ecommerce/Portal";
+import { Windmill } from '@windmill/react-ui'
+>>>>>>> 4110ce748a6803409c65f54d508d1c785c47e2f5
 function App() {
   const location = useLocation();
 
@@ -102,6 +107,7 @@ function App() {
 
   return (
     <>
+    {/* <Windmill> */}
       <Routes>
         <Route
           exact
@@ -120,7 +126,12 @@ function App() {
           path="/ecommerce/customers/updateCustomer"
           element={<UpdateCustomer />}
         />
+          <Route
+          path="/ecommerce/customers/portal"
+          element={<Portal/>}
+        />
         <Route path="/ecommerce/orders" element={<Orders />} />
+
         <Route path="/ecommerce/invoices" element={<Invoices />} />
         <Route path="/ecommerce/shop" element={<Shop />} />
         <Route path="/ecommerce/shop-2" element={<Shop2 />} />
@@ -198,6 +209,7 @@ function App() {
         <Route path="/component/icons" element={<IconsPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      {/* </Windmill> */}
     </>
   );
 }
