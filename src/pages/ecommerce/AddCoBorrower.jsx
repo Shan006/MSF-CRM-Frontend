@@ -130,7 +130,7 @@ const AddCoBorrower = (props) => {
             value={firstName}
             onChange={(e) => {
               setFirstName(e.target.value);
-              props.setCo({ ...props.co, firstName: e.target.value });
+              props.setCo({ ...props.co, firstname: e.target.value });
               console.log(count);
             }}
           />
@@ -176,7 +176,7 @@ const AddCoBorrower = (props) => {
             value={lastName}
             onChange={(e) => {
               setLastName(e.target.value);
-              props.setCo({ ...props.co, lastName: e.target.value });
+              props.setCo({ ...props.co, lastname: e.target.value });
             }}
           />
           <TextField
@@ -266,7 +266,7 @@ const AddCoBorrower = (props) => {
             value={mobilePhone}
             onChange={(e) => {
               setMobilePhone(e.target.value);
-              props.setCo({ ...props.co, mobilePhone: e.target.value });
+              props.setCo({ ...props.co, phone: e.target.value });
             }}
           />
           <TextField
@@ -312,7 +312,7 @@ const AddCoBorrower = (props) => {
             value={dob}
             onChange={(e) => {
               setDob(e.target.value);
-              props.setCo({ ...props.co, dob: e.target.value });
+              props.setCo({ ...props.co, DOB: e.target.value });
             }}
           />
           <TextField
@@ -357,7 +357,7 @@ const AddCoBorrower = (props) => {
             value={creditScore}
             onChange={(e) => {
               setCreditScore(e.target.value);
-              props.setCo({ ...props.co, creditScore: e.target.value });
+              props.setCo({ ...props.co, credit_score: e.target.value });
             }}
           />
           <TextField
@@ -400,7 +400,7 @@ const AddCoBorrower = (props) => {
             }}
             onChange={(e) => {
               setBestContactMethod(e.target.value);
-              props.setCo({ ...props.co, bestContactMethod: e.target.value });
+              props.setCo({ ...props.co, contact_type: e.target.value });
             }}
           >
             {currencies.map((option) => (
@@ -454,7 +454,7 @@ const AddCoBorrower = (props) => {
             value={relationToBorrower}
             onChange={(e) => {
               setRelationToBorrower(e.target.value);
-              props.setCo({ ...props.co, relationToBorrower: e.target.value });
+              props.setCo({ ...props.co, relationship: e.target.value });
             }}
           />
           {/* <button

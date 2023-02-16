@@ -76,6 +76,14 @@ import ProtectedRoute from "./ProtectedRoute";
 import RedirectRoute from "./RedirectRoute";
 import AddCustomers from "./pages/ecommerce/AddCustomers";
 import UpdateCustomer from "./pages/ecommerce/UpdateCustomer";
+import BorrowerForm from "./pages/MailForms/BorrowerForm";
+import AddressInfo from "./pages/MailForms/AddressInfo";
+import CoBorrower from "./pages/MailForms/CoBorrower";
+import MilitaryDetails from "./pages/MailForms/MilitaryDetails";
+import SecondMortgage from "./pages/MailForms/SecondMortgage";
+import PropertyInfo from "./pages/MailForms/PropertyInfo";
+import HousingExpenses from "./pages/MailForms/HousingExpenses";
+import CreditVerification from "./pages/MailForms/CreditVerification";
 
 function App() {
   const location = useLocation();
@@ -136,6 +144,16 @@ function App() {
           path="/finance/transaction-details"
           element={<TransactionDetails />}
         />
+
+        <Route path="/Mforms/borrower" element={<BorrowerForm />} />
+        <Route path="/Mforms/address" element={<AddressInfo />} />
+        <Route path="/Mforms/coborrower" element={<CoBorrower />} />
+        <Route path="/Mforms/military" element={<MilitaryDetails />} />
+        <Route path="/Mforms/secondMortgage" element={<SecondMortgage />} />
+        <Route path="/Mforms/propertyInfo" element={<PropertyInfo />} />
+        <Route path="/Mforms/housingExpenses" element={<HousingExpenses />} />
+        <Route path="/Mforms/creditExpenses" element={<CreditVerification />} />
+
         <Route path="/job/job-listing" element={<JobListing />} />
         <Route path="/job/job-post" element={<JobPost />} />
         <Route path="/job/company-profile" element={<CompanyProfile />} />
