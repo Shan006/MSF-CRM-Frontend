@@ -18,6 +18,9 @@ import { LeadContext } from "../../context/LeadContext";
 import OpportunityDetails from "./OpportunityDetails";
 import RefinanceDetails from "./RefinanceDetails";
 import PurchaseDetails from "./PurchaseDetails";
+import QualificationQuestions from "./QualifyingQuestions";
+import LeadDetails from "./LeadNotes";
+import ExtendedPropertyInfo from "./ExtendedPropertyInfo";
 
 const AddCustomers = () => {
   const { setObject } = useContext(LeadContext);
@@ -45,68 +48,88 @@ const AddCustomers = () => {
   const [contactData, setContactData] = useState([]);
   const [clearFields, setClearFields] = useState(false);
   const [status, setStatus] = useState();
-  const [obj, setObj] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    DOB: "",
-    credit_score: "",
-    contact_type: "",
-    relationship: "",
-  });
-  const [contactObj, setContactObj] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    alternate_phone: "",
-    decision_maker: "",
-    contact_type: "",
-    relationship: "",
-  });
-  const [opportunityObj, setOpportunityObj] = useState({
-    subject_property_address: "",
-    city: "",
-    state: "",
-    zip: "",
-    purpose: "",
-    goal: "",
-    projected_loan_amount: "",
-    compensation: "",
-    country: "",
-    property_type: "",
-    unit: "",
-    appraisal_value: "",
-    target_rate: "",
-    target_rate_type: "",
-    intended_use: "",
-    occupancy: "",
-  });
-  const [refinanceObj, setRefinanceObj] = useState({
-    mortgageProgram: "",
-    loanDate: "",
-    originalLoanBalance: "",
-    currentLoanBalance: "",
-    payoff: "",
-    purchasePrice: "",
-    purchaseDate: "",
-    mortgageStatus: "",
-    interestRate: "",
-    rateType: "",
-    monthlyPayment: "",
-    proposedPayment: "",
-    moneySaved: "",
-    borrowerOpinionValue: "",
-    cashOutAmount: "",
-    refiPurpose: "",
-  });
-  const [purchaseObj, setPurchaseObj] = useState({
-    area: "",
-    purchasePrice: "",
-    downPaymentAmount: "",
-    timeframe: "",
-  });
+  // const [obj, setObj] = useState({
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   phone: "",
+  //   DOB: "",
+  //   credit_score: "",
+  //   contact_type: "",
+  //   relationship: "",
+  // });
+  // const [contactObj, setContactObj] = useState({
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   phone: "",
+  //   alternate_phone: "",
+  //   decision_maker: "",
+  //   contact_type: "",
+  //   relationship: "",
+  // });
+  // const [opportunityObj, setOpportunityObj] = useState({
+  //   subject_property_address: "",
+  //   city: "",
+  //   state: "",
+  //   zip: "",
+  //   purpose: "",
+  //   goal: "",
+  //   projected_loan_amount: "",
+  //   compensation: "",
+  //   country: "",
+  //   property_type: "",
+  //   unit: "",
+  //   appraisal_value: "",
+  //   target_rate: "",
+  //   target_rate_type: "",
+  //   intended_use: "",
+  //   occupancy: "",
+  // });
+  // const [refinanceObj, setRefinanceObj] = useState({
+  //   current_mortgage_program: "",
+  //   loan_date: "",
+  //   original_loan_balance: "",
+  //   current_loan_balance: "",
+  //   current_payoff: "",
+  //   original_purchase_price: "",
+  //   original_purchase_date: "",
+  //   mortgage_status: "",
+  //   current_interest_rate: "",
+  //   current_rate_type: "",
+  //   current_monthly_payment: "",
+  //   proposed_payment: "",
+  //   money_saved: "",
+  //   borrower_oppinion_value: "",
+  //   cash_out_amount: "",
+  //   refi_purpose: "",
+  // });
+  // const [purchaseObj, setPurchaseObj] = useState({
+  //   area: "",
+  //   purchase_price: "",
+  //   down_payment: "",
+  //   time_frame: "",
+  // });
+  // const [qualificationQuestionsobj, setQualificationQuestionsObj] = useState({
+  //   bankruptcy: "",
+  //   foreclosure: "",
+  //   short_sale: "",
+  //   late_payments: "",
+  //   first_time_homebuyer: "",
+  //   FHA_loan: "",
+  //   veteran: "",
+  //   VA_disability: "",
+  // });
+  // const [propertyInfoobj, setPropertyInfoObj] = useState({
+  //   bankruptcy: "",
+  //   foreclosure: "",
+  //   short_sale: "",
+  //   late_payments: "",
+  //   first_time_homebuyer: "",
+  //   FHA_loan: "",
+  //   veteran: "",
+  //   VA_disability: "",
+  // });
 
   const Navigate = useNavigate();
 
@@ -170,27 +193,32 @@ const AddCustomers = () => {
       lastname,
       phone,
       email,
-      alternate_email,
-      contact_type,
-      credit_score,
-      DTI,
-      LTV,
-      liquid_assets,
-      SSN,
-      DOB,
-      source,
-      with_relator,
-      referral,
-      referral_source,
-      language_preference,
+      // alternate_email,
+      // contact_type,
+      // credit_score,
+      // DTI,
+      // LTV,
+      // liquid_assets,
+      // SSN,
+      // DOB,
+      // source,
+      // with_relator,
+      // referral,
+      // referral_source,
+      // language_preference,
     };
     DOB = new Date(DOB);
     const DataToSend = {
       leads: lead,
-      coborrows: obj,
-      contacts: contactObj,
+      // coborrows: obj,
+      // contacts: contactObj,
     };
 
+    if ((firstname === "", lastname === "", phone === "", email === "")) {
+      toast("Please Fill The Required Fields", {
+        position: "top-center",
+      });
+    }
     axios
       .post("https://infini8y.com/crm/public/api/store_leads", DataToSend)
       .then(function (response) {
@@ -495,66 +523,90 @@ const AddCustomers = () => {
             </Box>
             <div className="ml-4 mb-4 mt-4">
               <AddCoBorrower
-                d={coBorrowerData}
-                setD={setCoBorrowerData}
-                co={obj}
-                setCo={setObj}
-                clear={clearFields}
-                setClear={setClearFields}
+              // d={coBorrowerData}
+              // setD={setCoBorrowerData}
+              // co={obj}
+              // setCo={setObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
               />
               {coBorrower.map(() => (
                 <AddCoBorrower
-                  d={coBorrowerData}
-                  setD={setCoBorrowerData}
-                  co={obj}
-                  setCo={setObj}
-                  clear={clearFields}
-                  setClear={setClearFields}
+                // d={coBorrowerData}
+                // setD={setCoBorrowerData}
+                // co={obj}
+                // setCo={setObj}
+                // clear={clearFields}
+                // setClear={setClearFields}
                 />
               ))}
             </div>
             <div className="ml-4 mb-4 mt-4">
               <AddContact
-                d={contactData}
-                setD={setContactData}
-                co={contactObj}
-                setCo={setContactObj}
-                clear={clearFields}
-                setClear={setClearFields}
+              // d={contactData}
+              // setD={setContactData}
+              // co={contactObj}
+              // setCo={setContactObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
               />
               {contact.map(() => (
                 <AddContact
-                  d={contactData}
-                  setD={setContactData}
-                  co={contactObj}
-                  setCo={setContactObj}
-                  clear={clearFields}
-                  setClear={setClearFields}
+                // d={contactData}
+                // setD={setContactData}
+                // co={contactObj}
+                // setCo={setContactObj}
+                // clear={clearFields}
+                // setClear={setClearFields}
                 />
               ))}
             </div>
             <div className="ml-4 mb-4 mt-4">
               <OpportunityDetails
-                co={opportunityObj}
-                setCo={setOpportunityObj}
-                clear={clearFields}
-                setClear={setClearFields}
+              // co={opportunityObj}
+              // setCo={setOpportunityObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
               />
             </div>
             <div className="ml-4 mb-4 mt-4">
               <RefinanceDetails
-                co={refinanceObj}
-                setCo={setRefinanceObj}
-                clear={clearFields}
-                setClear={setClearFields}
+              // co={refinanceObj}
+              // setCo={setRefinanceObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
               />
             </div>
             <div className="ml-4 mb-4 mt-4">
               <PurchaseDetails
-                co={purchaseObj}
-                setCo={setPurchaseObj}
-                clear={clearFields}
-                setClear={setClearFields}
+              // co={purchaseObj}
+              // setCo={setPurchaseObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
+              />
+            </div>
+            <div className="ml-4 mb-4 mt-4">
+              <QualificationQuestions
+              // co={purchaseObj}
+              // setCo={setPurchaseObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
+              />
+            </div>
+            <div className="ml-4 mb-4 mt-4">
+              <ExtendedPropertyInfo
+              // co={purchaseObj}
+              // setCo={setPurchaseObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
+              />
+            </div>
+            <div className="ml-4 mb-4 mt-4">
+              <LeadDetails
+              // co={purchaseObj}
+              // setCo={setPurchaseObj}
+              // clear={clearFields}
+              // setClear={setClearFields}
               />
             </div>
             <Button variant="contained" className="m-3 mt-0" onClick={AddData}>

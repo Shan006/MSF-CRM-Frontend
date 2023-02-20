@@ -4,22 +4,22 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 
 const OpportunityDetails = (props) => {
-  const [propertyAddress, setPropertyAddress] = useState("");
+  const [subject_property_address, setsubject_property_address] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [zip, setzip] = useState("");
   const [purpose, setPurpose] = useState("");
-  const [objectives, setObjectives] = useState("");
-  const [loanAmount, setLoanAmount] = useState("");
+  const [goal, setgoal] = useState("");
+  const [projected_loan_amount, setprojected_loan_amount] = useState("");
   const [compensation, setCompensation] = useState("");
   const [country, setCountry] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [uints, setUnits] = useState("");
-  const [appraisalValue, setAppraisalValue] = useState("");
-  const [targetRate, setTargetRate] = useState("");
-  const [targetRateType, setTargetRateType] = useState("");
-  const [propertyUse, setPropertyUse] = useState("");
-  const [occupancy, setOccupancy] = useState("");
+  const [property_type, setproperty_type] = useState("");
+  const [unit, setUnits] = useState("");
+  const [appraisal_value, setappraisal_value] = useState("");
+  const [target_rate, settarget_rate] = useState("");
+  const [target_rate_type, settarget_rate_type] = useState("");
+  const [intended_use, setintended_use] = useState("");
+  const [occupancy, setoccupancy] = useState("");
   const [StateData, setStateData] = useState([
     "AK - Alaska",
     "AL - Alabama",
@@ -77,7 +77,7 @@ const OpportunityDetails = (props) => {
     "WV - West Virginia",
     "WY - Wyoming",
   ]);
-  const [propertyTypeArray, setPropertyTypeArray] = useState([
+  const [property_typeArray, setproperty_typeArray] = useState([
     "PUD",
     "SFH-Detached",
     "SFH-Attached",
@@ -93,25 +93,25 @@ const OpportunityDetails = (props) => {
     "3-Unit",
     "4-Unit",
   ]);
-  useEffect(() => {
-    setPropertyAddress("");
-    setCity("");
-    setState("");
-    setZipCode("");
-    setPurpose("");
-    setObjectives("");
-    setLoanAmount("");
-    setCompensation("");
-    setCountry("");
-    setPropertyType("");
-    setUnits("");
-    setAppraisalValue("");
-    setTargetRate("");
-    setTargetRateType("");
-    setPropertyUse("");
-    setOccupancy("");
-    props.setClear(false);
-  }, [props.clear]);
+  // useEffect(() => {
+  //   setsubject_property_address("");
+  //   setCity("");
+  //   setState("");
+  //   setzip("");
+  //   setPurpose("");
+  //   setgoal("");
+  //   setprojected_loan_amount("");
+  //   setCompensation("");
+  //   setCountry("");
+  //   setproperty_type("");
+  //   setUnits("");
+  //   setappraisal_value("");
+  //   settarget_rate("");
+  //   settarget_rate_type("");
+  //   setintended_use("");
+  //   setoccupancy("");
+  //   // props.setClear(false);
+  // }, [props.clear]);
   return (
     <>
       <div className="border-solid border-2 rounded-md border-indigo-200 py-3 mt-4">
@@ -127,17 +127,17 @@ const OpportunityDetails = (props) => {
         >
           <TextField
             id="outlined-password-input"
-            label="SubjectPropertyAddress"
+            label="Subject Property Address"
             InputLabelProps={{
               shrink: true,
             }}
-            value={propertyAddress}
+            value={subject_property_address}
             onChange={(e) => {
-              setPropertyAddress(e.target.value);
-              props.setCo({
-                ...props.co,
-                subject_property_address: e.target.value,
-              });
+              setsubject_property_address(e.target.value);
+              // props.setCo({
+              //   ...props.co,
+              //   subject_property_address: e.target.value,
+              // });
             }}
           />
           <TextField
@@ -149,7 +149,7 @@ const OpportunityDetails = (props) => {
             value={city}
             onChange={(e) => {
               setCity(e.target.value);
-              props.setCo({ ...props.co, city: e.target.value });
+              // props.setCo({ ...props.co, city: e.target.value });
             }}
           />
           <TextField
@@ -159,7 +159,7 @@ const OpportunityDetails = (props) => {
             defaultValue="E"
             onChange={(e) => {
               setState(e.target.value);
-              props.setCo({ ...props.co, state: e.target.value });
+              // props.setCo({ ...props.co, state: e.target.value });
             }}
           >
             {StateData.map((option) => (
@@ -174,10 +174,10 @@ const OpportunityDetails = (props) => {
             InputLabelProps={{
               shrink: true,
             }}
-            value={zipCode}
+            value={zip}
             onChange={(e) => {
-              setZipCode(e.target.value);
-              props.setCo({ ...props.co, zip: e.target.value });
+              setzip(e.target.value);
+              // props.setCo({ ...props.co, zip: e.target.value });
             }}
           />
           <TextField
@@ -187,7 +187,7 @@ const OpportunityDetails = (props) => {
             defaultValue="E"
             onChange={(e) => {
               setPurpose(e.target.value);
-              props.setCo({ ...props.co, purpose: e.target.value });
+              // props.setCo({ ...props.co, purpose: e.target.value });
             }}
           >
             <MenuItem value="Refinance">Refinance</MenuItem>
@@ -196,27 +196,30 @@ const OpportunityDetails = (props) => {
           </TextField>
           <TextField
             id="outlined-password-input"
-            label="Est. Goals&Objectives"
+            label="Est. Goals&goal"
             InputLabelProps={{
               shrink: true,
             }}
-            value={objectives}
+            value={goal}
             onChange={(e) => {
-              setObjectives(e.target.value);
-              props.setCo({ ...props.co, goal: e.target.value });
+              setgoal(e.target.value);
+              // props.setCo({ ...props.co, goal: e.target.value });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="ProjectedLoanAmount"
+            label="Projected Loan Amount"
             placeholder="$"
             InputLabelProps={{
               shrink: true,
             }}
-            value={loanAmount}
+            value={projected_loan_amount}
             onChange={(e) => {
-              setLoanAmount(e.target.value);
-              props.setCo({ ...props.co, loanAmount: e.target.value });
+              setprojected_loan_amount(e.target.value);
+              // props.setCo({
+              //   ...props.co,
+              //   projected_loan_amount: e.target.value,
+              // });
             }}
           />
           <TextField
@@ -229,7 +232,7 @@ const OpportunityDetails = (props) => {
             value={compensation}
             onChange={(e) => {
               setCompensation(e.target.value);
-              props.setCo({ ...props.co, compensation: e.target.value });
+              // props.setCo({ ...props.co, compensation: e.target.value });
             }}
           />
           <TextField
@@ -241,20 +244,20 @@ const OpportunityDetails = (props) => {
             value={country}
             onChange={(e) => {
               setCountry(e.target.value);
-              props.setCo({ ...props.co, country: e.target.value });
+              // props.setCo({ ...props.co, country: e.target.value });
             }}
           />
           <TextField
             id="outlined-select-currency"
             select
-            label="PropertyType"
+            label="Property Type"
             defaultValue="E"
             onChange={(e) => {
-              setPropertyType(e.target.value);
-              props.setCo({ ...props.co, propertyType: e.target.value });
+              setproperty_type(e.target.value);
+              // props.setCo({ ...props.co, property_type: e.target.value });
             }}
           >
-            {propertyTypeArray.map((option) => (
+            {property_typeArray.map((option) => (
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>
@@ -267,58 +270,58 @@ const OpportunityDetails = (props) => {
             InputLabelProps={{
               shrink: true,
             }}
-            value={uints}
+            value={unit}
             onChange={(e) => {
               setUnits(e.target.value);
-              props.setCo({ ...props.co, uints: e.target.value });
+              // props.setCo({ ...props.co, uint: e.target.value });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="EstimatedAppraisalValue"
+            label="Estimated Appraisal Value"
             placeholder="$"
             InputLabelProps={{
               shrink: true,
             }}
-            value={appraisalValue}
+            value={appraisal_value}
             onChange={(e) => {
-              setAppraisalValue(e.target.value);
-              props.setCo({ ...props.co, AppraisalValue: e.target.value });
+              setappraisal_value(e.target.value);
+              // props.setCo({ ...props.co, appraisal_value: e.target.value });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="TargetRate"
+            label="Target Rate"
             placeholder="0%"
             InputLabelProps={{
               shrink: true,
             }}
-            value={targetRate}
+            value={target_rate}
             onChange={(e) => {
-              setTargetRate(e.target.value);
-              props.setCo({ ...props.co, targetRate: e.target.value });
+              settarget_rate(e.target.value);
+              // props.setCo({ ...props.co, target_rate: e.target.value });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="TargetRateType"
+            label="Target Rate Type"
             InputLabelProps={{
               shrink: true,
             }}
-            value={targetRateType}
+            value={target_rate_type}
             onChange={(e) => {
-              setTargetRateType(e.target.value);
-              props.setCo({ ...props.co, targetRateType: e.target.value });
+              settarget_rate_type(e.target.value);
+              // props.setCo({ ...props.co, target_rate_type: e.target.value });
             }}
           />
           <TextField
             id="outlined-select-currency"
             select
-            label="IntendedPropertyUse"
+            label="Intended Use"
             defaultValue="E"
             onChange={(e) => {
-              setPropertyUse(e.target.value);
-              props.setCo({ ...props.co, propertyUse: e.target.value });
+              setintended_use(e.target.value);
+              // props.setCo({ ...props.co, intended_use: e.target.value });
             }}
           >
             <MenuItem value="PrimaryResidence">Primary Residence</MenuItem>
@@ -331,8 +334,8 @@ const OpportunityDetails = (props) => {
             label="Occupancy"
             defaultValue="E"
             onChange={(e) => {
-              setOccupancy(e.target.value);
-              props.setCo({ ...props.co, occupancy: e.target.value });
+              setoccupancy(e.target.value);
+              // props.setCo({ ...props.co, occupancy: e.target.value });
             }}
           >
             <MenuItem value="PrimaryResidence">Primary</MenuItem>

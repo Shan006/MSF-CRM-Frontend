@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../context/AuthContext";
 import AuthImage from "../images/auth-image.jpg";
 import AuthDecoration from "../images/auth-decoration.png";
 import { toast } from "react-hot-toast";
@@ -15,12 +15,13 @@ function Signup() {
   });
 
   const navigate = useNavigate();
+  const { backendUri } = useContext(AuthContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
     try {
       axios
-        .post(`https://infini8y.com/crm/public/api/register`, data)
+        .post(`${backendUri}/user/register`, data)
         .then((res) => {
           console.log(res);
           toast.success(res.data.message);

@@ -5,17 +5,17 @@ import MenuItem from "@mui/material/MenuItem";
 
 const PurchaseDetails = (props) => {
   const [area, setArea] = useState("");
-  const [purchasePrice, setPurchasePrice] = useState("");
-  const [downPaymentAmount, setDownPaymentAmount] = useState("");
-  const [timeframe, setTimeframe] = useState("");
+  const [purchase_price, setpurchase_price] = useState("");
+  const [down_payment, setdown_payment] = useState("");
+  const [time_frame, settime_frame] = useState("");
 
-  useEffect(() => {
-    setArea("");
-    setPurchasePrice("");
-    setDownPaymentAmount("");
-    setTimeframe("");
-    props.setClear(false);
-  }, [props.clear]);
+  // useEffect(() => {
+  //   setArea("");
+  //   setpurchase_price("");
+  //   setdown_payment("");
+  //   settime_frame("");
+  //   // props.setClear(false);
+  // }, [props.clear]);
   return (
     <>
       <div className="border-solid border-2 rounded-md border-indigo-200 py-3 mt-4">
@@ -38,44 +38,44 @@ const PurchaseDetails = (props) => {
             value={area}
             onChange={(e) => {
               setArea(e.target.value);
-              props.setCo({
-                ...props.co,
-                area: e.target.value,
-              });
+              // props.setCo({
+              //   ...props.co,
+              //   area: e.target.value,
+              // });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="PurchasePrice"
+            label="Purchase Price"
             InputLabelProps={{
               shrink: true,
             }}
-            value={purchasePrice}
+            value={purchase_price}
             onChange={(e) => {
-              setPurchasePrice(e.target.value);
-              props.setCo({ ...props.co, purchasePrice: e.target.value });
+              setpurchase_price(e.target.value);
+              // props.setCo({ ...props.co, purchase_price: e.target.value });
             }}
           />
           <TextField
             id="outlined-password-input"
-            label="DownPaymentAmount"
+            label="Down Payment"
             InputLabelProps={{
               shrink: true,
             }}
-            value={downPaymentAmount}
+            value={down_payment}
             onChange={(e) => {
-              setDownPaymentAmount(e.target.value);
-              props.setCo({ ...props.co, downPaymentAmount: e.target.value });
+              setdown_payment(e.target.value);
+              // props.setCo({ ...props.co, down_payment: e.target.value });
             }}
           />
           <TextField
             id="outlined-select-currency"
             select
-            label="TimeFrame"
+            label="Time Frame"
             defaultValue="E"
             onChange={(e) => {
-              setTimeframe(e.target.value);
-              props.setCo({ ...props.co, timeframe: e.target.value });
+              settime_frame(e.target.value);
+              // props.setCo({ ...props.co, time_frame: e.target.value });
             }}
           >
             <MenuItem value="1Week">1Week</MenuItem>
@@ -85,14 +85,14 @@ const PurchaseDetails = (props) => {
             <MenuItem value="3-6Months">3-6 Months</MenuItem>
             <MenuItem value="1+Year">1+ Year</MenuItem>
           </TextField>
-          <button
+          {/* <button
             onClick={(e) => {
               e.preventDefault();
               console.log("PurchaseDetails", props.co);
             }}
           >
             Check
-          </button>
+          </button> */}
         </Box>
       </div>
     </>

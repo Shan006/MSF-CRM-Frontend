@@ -33,7 +33,7 @@ const AddContact = (props) => {
     setAlternatePhone("");
     setDecisionMaker("");
     setRelationToBorrower("");
-    props.setClear(false);
+    // props.setClear(false);
   }, [props.clear]);
 
   const currencies = [

@@ -76,7 +76,6 @@ import ProtectedRoute from "./ProtectedRoute";
 import RedirectRoute from "./RedirectRoute";
 import AddCustomers from "./pages/ecommerce/AddCustomers";
 import UpdateCustomer from "./pages/ecommerce/UpdateCustomer";
-<<<<<<< HEAD
 import BorrowerForm from "./pages/MailForms/BorrowerForm";
 import AddressInfo from "./pages/MailForms/AddressInfo";
 import CoBorrower from "./pages/MailForms/CoBorrower";
@@ -85,11 +84,8 @@ import SecondMortgage from "./pages/MailForms/SecondMortgage";
 import PropertyInfo from "./pages/MailForms/PropertyInfo";
 import HousingExpenses from "./pages/MailForms/HousingExpenses";
 import CreditVerification from "./pages/MailForms/CreditVerification";
-
-=======
 import Portal from "./pages/ecommerce/Portal";
-import { Windmill } from '@windmill/react-ui'
->>>>>>> 4110ce748a6803409c65f54d508d1c785c47e2f5
+// import { Windmill } from "@windmill/react-ui";
 function App() {
   const location = useLocation();
 
@@ -107,7 +103,7 @@ function App() {
 
   return (
     <>
-    {/* <Windmill> */}
+      {/* <Windmill> */}
       <Routes>
         <Route
           exact
@@ -126,10 +122,7 @@ function App() {
           path="/ecommerce/customers/updateCustomer"
           element={<UpdateCustomer />}
         />
-          <Route
-          path="/ecommerce/customers/portal"
-          element={<Portal/>}
-        />
+        <Route path="/ecommerce/customers/portal" element={<Portal />} />
         <Route path="/ecommerce/orders" element={<Orders />} />
 
         <Route path="/ecommerce/invoices" element={<Invoices />} />
@@ -185,10 +178,10 @@ function App() {
         <Route path="/utility/empty-state" element={<EmptyState />} />
         <Route path="/utility/404" element={<PageNotFound />} />
         <Route path="/utility/knowledge-base" element={<KnowledgeBase />} />
-        <Route path="/signin" element={<RedirectRoute Component={Signin} />} />
-        {/* <Route path="/signin" element={<Signin />} /> */}
-        <Route path="/signup" element={<RedirectRoute Component={Signup} />} />
-        {/* <Route path="/signup" element={<Signup />} /> */}
+        {/* <Route path="/signin" element={<RedirectRoute Component={Signin} />} /> */}
+        <Route path="/signin" element={<Signin />} />
+        {/* <Route path="/signup" element={<RedirectRoute Component={Signup} />} /> */}
+        <Route path="/signup" element={<Signup />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/onboarding-01" element={<Onboarding01 />} />
         <Route path="/onboarding-02" element={<Onboarding02 />} />

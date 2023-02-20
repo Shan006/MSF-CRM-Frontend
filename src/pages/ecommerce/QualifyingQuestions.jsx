@@ -4,30 +4,30 @@ import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 
 const QualificationQuestions = (props) => {
-  const [bankruptcy, setBankruptcy] = useState("");
-  const [foreclosure, setForeclosure] = useState("");
-  const [shortSale, setShortSale] = useState("");
-  const [latePayments, setLatePayments] = useState("");
-  const [firstTimeHomeBuyer, setFirstTimeHomeBuyer] = useState("");
-  const [fhaLoan, setFhaLoan] = useState("");
-  const [veteran, setVeteran] = useState("");
-  const [vaDisability, setVaDisability] = useState("");
+  const [bankruptcy, setbankruptcy] = useState("");
+  const [foreclosure, setforeclosure] = useState("");
+  const [short_sale, setshort_sale] = useState("");
+  const [late_payments, setlate_payments] = useState("");
+  const [first_time_homebuyer, setfirst_time_homebuyer] = useState("");
+  const [FHA_loan, setFHA_loan] = useState("");
+  const [veteran, setveteran] = useState("");
+  const [VA_disability, setVA_disability] = useState("");
 
-  useEffect(() => {
-    setBankruptcy("");
-    setForeclosure("");
-    setShortSale("");
-    setLatePayments("");
-    setFirstTimeHomeBuyer("");
-    setFhaLoan("");
-    setVeteran("");
-    setVaDisability("");
-    props.setClear(false);
-  }, [props.clear]);
+  // useEffect(() => {
+  //   setbankruptcy("");
+  //   setforeclosure("");
+  //   setshort_sale("");
+  //   setlate_payments("");
+  //   setfirst_time_homebuyer("");
+  //   setFHA_loan("");
+  //   setveteran("");
+  //   setVA_disability("");
+  //   // props.setClear(false);
+  // }, [props.clear]);
   return (
     <>
       <div className="border-solid border-2 rounded-md border-indigo-200 py-3 mt-4">
-        <h1 className="ml-4 font-medium">Refinance Details</h1>
+        <h1 className="ml-4 font-medium">Qualifying Questions</h1>
         <Box
           className="ml-2 mt-3"
           component="form"
@@ -38,13 +38,13 @@ const QualificationQuestions = (props) => {
           autoComplete="off"
         >
           <TextField
-            id="Bankruptcy"
+            id="bankruptcy"
             select
-            label="MortgageStatus"
+            label="Mortgage Status"
             defaultValue="E"
             onChange={(e) => {
-              setBankruptcy(e.target.value);
-              props.setCo({ ...props.co, bankruptcy: e.target.value });
+              setbankruptcy(e.target.value);
+              // props.setCo({ ...props.co, bankruptcy: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -53,11 +53,11 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="ForeClosure"
+            label="Foreclosure"
             defaultValue="E"
             onChange={(e) => {
-              setForeclosure(e.target.value);
-              props.setCo({ ...props.co, foreclosure: e.target.value });
+              setforeclosure(e.target.value);
+              // props.setCo({ ...props.co, foreclosure: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -66,11 +66,11 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="ShortSale"
+            label="Short Sale"
             defaultValue="E"
             onChange={(e) => {
-              setShortSale(e.target.value);
-              props.setCo({ ...props.co, shortSale: e.target.value });
+              setshort_sale(e.target.value);
+              // props.setCo({ ...props.co, short_sale: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -79,11 +79,11 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="LatePayments"
+            label="Late Payments"
             defaultValue="E"
             onChange={(e) => {
-              setLatePayments(e.target.value);
-              props.setCo({ ...props.co, latePayments: e.target.value });
+              setlate_payments(e.target.value);
+              // props.setCo({ ...props.co, late_payments: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -92,11 +92,14 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="FirstTimeHomeBuyer?"
+            label="First Time Homebuyer?"
             defaultValue="E"
             onChange={(e) => {
-              setFirstTimeHomeBuyer(e.target.value);
-              props.setCo({ ...props.co, firstTimeHomeBuyer: e.target.value });
+              setfirst_time_homebuyer(e.target.value);
+              // props.setCo({
+              //   ...props.co,
+              //   first_time_homebuyer: e.target.value,
+              // });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -105,11 +108,11 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="FHALoan"
+            label="FHA Loan"
             defaultValue="E"
             onChange={(e) => {
-              setFhaLoan(e.target.value);
-              props.setCo({ ...props.co, fhaLoan: e.target.value });
+              setFHA_loan(e.target.value);
+              // props.setCo({ ...props.co, FHA_loan: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -121,8 +124,8 @@ const QualificationQuestions = (props) => {
             label="Veteran"
             defaultValue="E"
             onChange={(e) => {
-              setVeteran(e.target.value);
-              props.setCo({ ...props.co, veteran: e.target.value });
+              setveteran(e.target.value);
+              // props.setCo({ ...props.co, veteran: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>
@@ -131,11 +134,11 @@ const QualificationQuestions = (props) => {
           <TextField
             id="outlined-select-currency"
             select
-            label="VADisability"
+            label="VA Disability"
             defaultValue="E"
             onChange={(e) => {
-              setVaDisability(e.target.value);
-              props.setCo({ ...props.co, vadisability: e.target.value });
+              setVA_disability(e.target.value);
+              // props.setCo({ ...props.co, VA_disability: e.target.value });
             }}
           >
             <MenuItem value="Yes">Yes</MenuItem>

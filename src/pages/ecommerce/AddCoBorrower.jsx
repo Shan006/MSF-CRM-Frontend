@@ -50,7 +50,7 @@ const AddCoBorrower = (props) => {
     setDob("");
     setCreditScore("");
     setRelationToBorrower("");
-    props.setClear(false);
+    // props.setClear(false);
   }, [props.clear]);
 
   const currencies = [

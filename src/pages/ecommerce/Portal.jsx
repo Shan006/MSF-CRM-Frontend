@@ -9,11 +9,10 @@ import { AiOutlineCloudUpload, AiOutlineMail } from "react-icons/ai";
 import { BiMessageDots } from "react-icons/bi";
 import { VscTasklist } from "react-icons/vsc";
 import { GrDocument } from "react-icons/gr";
-import { Transition } from "@windmill/react-ui";
+// import { Transition } from "@windmill/react-ui";
 import { GrAddCircle } from "react-icons/gr";
 import { preDefinedForm } from "./portalComponents/PredefinedForm";
 import { PortalMilestoneForm } from "./portalComponents/PortalMilestoneForm";
-
 
 const Portal = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -87,7 +86,7 @@ const Portal = () => {
                   sendInviteToggle ? "absolute  " : "hidden"
                 }`}
               >
-                <Transition
+                {/* <Transition
                   show={sendInviteToggle}
                   enter="transition ease-out duration-300 transform"
                   enterFrom="opacity-0 scale-95"
@@ -95,19 +94,19 @@ const Portal = () => {
                   leave="transition ease-in duration-100 transform"
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
-                >
-                  <ul className="flex-col ">
-                    <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
-                      Send via Email
-                    </li>
-                    <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
-                      Send via SMS
-                    </li>
-                    <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
-                      Copy Portal Link
-                    </li>
-                  </ul>
-                </Transition>
+                > */}
+                <ul className="flex-col ">
+                  <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
+                    Send via Email
+                  </li>
+                  <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
+                    Send via SMS
+                  </li>
+                  <li className="cursor-pointer text-[#788AB8] pt-2 hover:text-[#1b4ac0]">
+                    Copy Portal Link
+                  </li>
+                </ul>
+                {/* </Transition> */}
               </div>
             </div>
           </div>
@@ -365,7 +364,7 @@ const Portal = () => {
           </div>
           {/* Trash document table*/}
           <div className="flex flex-col pb-6">
-          <p className=" flex text-lg font-semibold px-2">Trash Documents</p>
+            <p className=" flex text-lg font-semibold px-2">Trash Documents</p>
 
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -373,7 +372,7 @@ const Portal = () => {
                   <table className="min-w-full divide-y divide-gray-200 ml-2">
                     <thead className="bg-gray-50 ">
                       <tr className="py-3 ">
-                      <th
+                        <th
                           scope="col"
                           className="  font-medium text-gray-500  tracking-wider"
                         >
@@ -413,9 +412,11 @@ const Portal = () => {
             </div>
           </div>
 
-            {/* Portal Milestones*/}
-            <div className="flex flex-col pb-6">
-          <p className=" flex text-lg font-semibold px-2">Portal Milestones</p>
+          {/* Portal Milestones*/}
+          <div className="flex flex-col pb-6">
+            <p className=" flex text-lg font-semibold px-2">
+              Portal Milestones
+            </p>
 
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -423,11 +424,11 @@ const Portal = () => {
                   <table className="min-w-full divide-y divide-gray-200 ml-2">
                     <thead className="bg-gray-50 ">
                       <tr className="py-3 ">
-                      <th
+                        <th
                           scope="col"
                           className="  font-medium text-gray-500  tracking-wider"
                         >
-                         Portal Status
+                          Portal Status
                         </th>
                         <th
                           scope="col"
@@ -441,21 +442,24 @@ const Portal = () => {
                         >
                           Checked By(User)
                         </th>
-                     
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {PortalMilestoneForm.map((item)=>
-                      <tr className="">
-                        <td className=" pt-3 whitespace-nowrap">
-                          <input type='checkbox' className="w-5 h-5 rounded-md mx-2" />
-                          <p className="inline-flex">{item.data}</p>
-                        </td>
-                        <td className=" pt-3 whitespace-nowrap">02/12/2022</td>
-                        <td className=" pt-3 whitespace-nowrap">abc</td>
-                        
-                      </tr>
-                      )}
+                      {PortalMilestoneForm.map((item) => (
+                        <tr className="">
+                          <td className=" pt-3 whitespace-nowrap">
+                            <input
+                              type="checkbox"
+                              className="w-5 h-5 rounded-md mx-2"
+                            />
+                            <p className="inline-flex">{item.data}</p>
+                          </td>
+                          <td className=" pt-3 whitespace-nowrap">
+                            02/12/2022
+                          </td>
+                          <td className=" pt-3 whitespace-nowrap">abc</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
