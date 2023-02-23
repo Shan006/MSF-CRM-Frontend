@@ -12,7 +12,7 @@ function DropdownProfile({ align }) {
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
-  const { backendUri } = useContext(AuthContext);
+  const { backendUri, setToken } = useContext(AuthContext);
 
   const logoutUser = (e) => {
     e.preventDefault();
@@ -22,7 +22,8 @@ function DropdownProfile({ align }) {
         .delete(`${backendUri}/user/logout`)
         .then((res) => {
           console.log(res);
-          toast.success(res.data.message);
+          toast.success("Logged Out Successfully");
+          setToken({ tk: "", status: false });
           Navigate("/signin");
         })
         .catch((err) => {

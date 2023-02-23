@@ -9,15 +9,23 @@ import { AiOutlineCloudUpload, AiOutlineMail } from "react-icons/ai";
 import { BiMessageDots } from "react-icons/bi";
 import { VscTasklist } from "react-icons/vsc";
 import { GrDocument } from "react-icons/gr";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 // import { Transition } from "@windmill/react-ui";
 import { GrAddCircle } from "react-icons/gr";
 import { preDefinedForm } from "./portalComponents/PredefinedForm";
 import { PortalMilestoneForm } from "./portalComponents/PortalMilestoneForm";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 const Portal = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sendInviteToggle, setSendInviteToggle] = useState(false);
   const [docTempToggle, setdocTempToggle] = useState(false);
+  const [pLoginLink, setPLoginLink] = useState("");
+  const [pass, setPass] = useState("");
+  const [cpass, setCPass] = useState("");
 
   return (
     <>
@@ -353,9 +361,9 @@ const Portal = () => {
             <div className="mx-0 md:mx-4  ">
               <p className="hover:scale-95 cursor-pointer">Map for Signature</p>
             </div>
-            <div className=" flex  justify-center rounded-md p-2 bg-[#2E66F6]  hover:bg-[#1c4cc4] hover:scale-95">
+            <div className=" flex  justify-center rounded-md p-2 hover:bg-[#058cc1] bg-[#1d4189] hover:scale-95">
               <button
-                className="text-lg font-medium text-white  "
+                className="text-lg font-medium text-white "
                 //  onClick={() => setSendInviteToggle(!sendInviteToggle)}
               >
                 Save Custom Doc
@@ -465,6 +473,122 @@ const Portal = () => {
                 </div>
               </div>
             </div>
+            {/* Custome Questions and Fields  */}
+            <div className="mt-3 flex-col w-[100%] bg-white p-2">
+              <div className="flex w-[100%] justify-between">
+                <h1 className="text-lg">Custom Questions & Fields</h1>
+                <div className="flex w-48 justify-center rounded-md p-2 hover:bg-[#058cc1] bg-[#1d4189] hover:scale-95">
+                  <button className="text-lg font-medium text-white">
+                    Add Fields
+                  </button>
+                </div>
+              </div>
+              <div className="flex justify-between mt-4">
+                <table className="min-w-full divide-y divide-gray-200 ml-2">
+                  <thead className="bg-gray-50 ">
+                    <tr className="py-3 border-t-2">
+                      <th
+                        scope="col"
+                        className="  font-medium text-gray-500  tracking-wider border-r-2 p-2"
+                      >
+                        #
+                      </th>
+                      <th
+                        scope="col"
+                        className=" font-medium text-gray-500  tracking-wider w-5/6 pl-3"
+                      >
+                        Title
+                      </th>
+                      <th
+                        scope="col"
+                        className="  font-medium text-gray-500  tracking-wider border-l-2 pl-3"
+                      >
+                        Answer
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    <tr className="py-3">
+                      <th
+                        scope="col"
+                        className="  font-medium text-gray-500  tracking-wider p-2"
+                      >
+                        <FormControlLabel control={<Checkbox />} />
+                      </th>
+                      <th
+                        scope="col"
+                        className="  font-medium text-gray-500  tracking-wider w-5/6 pl-3"
+                      >
+                        How Satisfied were you with our overall service (1 Best
+                        , 2.Good, 3 OK, 4 not good, 5 Worst)
+                      </th>
+                      <th
+                        scope="col"
+                        className="  font-medium text-gray-500  tracking-wider pl-3"
+                      >
+                        <input
+                          type="text"
+                          className="w-1/2 mt-2 rounded-md sm:w-3/5"
+                        />
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Portal Password Reset  */}
+            <div className="mt-3 flex-col w-[100%] bg-white p-3 text-lg">
+              <h1>Portal Password Reset</h1>
+              <Box
+                className="ml-2 mt-3"
+                component="form"
+                sx={{
+                  "& .MuiTextField-root": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+                <TextField
+                  id="outlined-password-input"
+                  label="Portal Login Link"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={pLoginLink}
+                  onChange={(e) => {
+                    setPLoginLink(e.target.value);
+                  }}
+                />
+                <TextField
+                  id="outlined-password-input"
+                  label="New Password"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={pass}
+                  onChange={(e) => {
+                    setPass(e.target.value);
+                  }}
+                />
+                <TextField
+                  id="outlined-password-input"
+                  label="Confirm Password"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={cpass}
+                  onChange={(e) => {
+                    setCPass(e.target.value);
+                  }}
+                />
+              </Box>
+              <div className="flex w-48 justify-center rounded-md p-2 hover:bg-[#058cc1] bg-[#1d4189] hover:scale-95 m-3">
+                <button className="text-md text-white">Reset Password</button>
+              </div>
+            </div>
+
+            {/* End */}
           </div>
         </div>
 

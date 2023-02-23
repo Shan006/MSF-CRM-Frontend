@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -13,15 +13,14 @@ function Signin() {
     email: "",
     password: "",
   });
-
-  const { setSession } = useContext(AuthContext);
+  const { backendUri, setToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
     try {
       axios
-        .post(`https://infini8y.com/crm/public/api/login`, data)
+        .post(`${backendUri}/user/login`, data)
         .then((res) => {
           toast.success(res.data.message);
           setData({
@@ -29,10 +28,7 @@ function Signin() {
             password: "",
           });
           console.log(res.data);
-          setSession({
-            token: res.data.token,
-            isLogin: true,
-          });
+          setToken({ tk: res.data.token, status: true });
           navigate("/");
         })
         .catch((err) => {

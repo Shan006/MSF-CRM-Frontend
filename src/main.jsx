@@ -7,7 +7,8 @@ import { LeadProvider } from "./context/LeadContext";
 import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
     <Toaster
       position="top-right"
       toastOptions={{
@@ -25,5 +26,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </AuthProvider>
       </LeadProvider>
     </Router>
-  </React.StrictMode>
+  </>
+  // </React.StrictMode>
 );

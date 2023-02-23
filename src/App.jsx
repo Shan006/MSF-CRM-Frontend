@@ -85,11 +85,13 @@ import PropertyInfo from "./pages/MailForms/PropertyInfo";
 import HousingExpenses from "./pages/MailForms/HousingExpenses";
 import CreditVerification from "./pages/MailForms/CreditVerification";
 import Portal from "./pages/ecommerce/Portal";
+import AllUsers from "./pages/UserManagment/AllUsers";
+import UpdateUserData from "./pages/UserManagment/UpdateUserData";
 // import { Windmill } from "@windmill/react-ui";
 function App() {
   const location = useLocation();
 
-  const { session } = useContext(AuthContext);
+  // const { session } = useContext(AuthContext);
 
   useEffect(() => {
     document.querySelector("html").style.scrollBehavior = "auto";
@@ -97,9 +99,9 @@ function App() {
     document.querySelector("html").style.scrollBehavior = "";
   }, [location.pathname]); // triggered on route change
 
-  useEffect(() => {
-    console.log(session);
-  }, []);
+  // useEffect(() => {
+  //   console.log(session);
+  // }, []);
 
   return (
     <>
@@ -116,7 +118,8 @@ function App() {
         <Route path="/ecommerce/customers" element={<Customers />} />
         <Route
           path="/ecommerce/customers/addCustomer"
-          element={<AddCustomers />}
+          // element={<AddCustomers />}
+          element={<ProtectedRoute Component={AddCustomers} />}
         />
         <Route
           path="/ecommerce/customers/updateCustomer"
@@ -157,6 +160,11 @@ function App() {
         <Route path="/Mforms/propertyInfo" element={<PropertyInfo />} />
         <Route path="/Mforms/housingExpenses" element={<HousingExpenses />} />
         <Route path="/Mforms/creditExpenses" element={<CreditVerification />} />
+
+        {/* Role Management */}
+
+        <Route path="/user/allUsers" element={<AllUsers />} />
+        <Route path="/user/updateUser" element={<UpdateUserData />} />
 
         <Route path="/job/job-listing" element={<JobListing />} />
         <Route path="/job/job-post" element={<JobPost />} />
