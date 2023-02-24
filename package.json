@@ -12,6 +12,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.2",
     "@mui/styled-engine-sc": "^5.11.0",
+    "@ringcentral/sdk": "^4.7.4",
     "@tailwindcss/forms": "^0.5.2",
     "@windmill/react-ui": "^0.6.0",
     "axios": "^1.2.1",
@@ -19,6 +20,7 @@
     "chart.js": "^3.8.0",
     "chartjs-adapter-moment": "^1.0.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,5 +40,17 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
     "vite": "^3.0.0"
-  }
+  },
+  "description": "React landing page template designed by Cruip.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shan006/MSF-CRM-Frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shan006/MSF-CRM-Frontend/issues"
+  },
+  "homepage": "https://github.com/Shan006/MSF-CRM-Frontend#readme"
 }
